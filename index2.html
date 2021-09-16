@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width= initial-scale=1.0">
+    <title>RandomHex Color Change </title>
+</head>
+
+<body>
+    <!-- Stylesheet -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #main {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #randomColor {
+            background-color: #2f3333;
+            border: none;
+            color: white;
+            padding: 1em;
+            text-align: center;
+            text-decoration: none;
+            font-size: 24px;
+            margin-top: 20px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+        }
+    </style>
+    <!-- Stylesheet End -->
+
+    <!-- HTML -->
+    <div class="wrapper">
+        <div id="main">
+            <button id="randomColor">Click Me </button>
+        </div>
+    </div>
+    <!-- HTML END-->
+
+
+
+
+
+    <!-- JavaScript -->
+    <script>
+        const hexvalues = ['0', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'];
+
+        let randomColor = () => {
+            let hex = "#";
+            for (let i = 0; i < 6; i++) {
+                let randomIndex = Math.floor(hexvalues.length * Math.random());
+                let randomValue = hexvalues[randomIndex];
+                hex = hex + randomValue;
+            }
+            return hex;
+        }
+        let randomColorButton = document.getElementById('randomColor');
+        randomColorButton.onclick = () => {
+            document.body.style.backgroundColor = randomColor();
+        };
+
+// <!-- JavaScript End -->
+    </script>
+</body>
+
+</html>
